@@ -5,10 +5,19 @@ import { IconButton } from "@material-ui/core";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import MenuIcon from "@material-ui/icons/Menu";
+import { useStateValue } from "../StateProvider";
 
 function Navbar() {
   let logo = "https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg";
   const [isDark, setDark] = React.useState(false);
+  const [{ sidebar }, dispatch] = useStateValue();
+
+  const handleSidebar = () => {
+    dispatch({
+      type: "SET_SIDEBAR",
+      sidebar: !sidebar,
+    });
+  };
 
   const handleLightTheme = () => {
     setDark(false);
@@ -27,7 +36,7 @@ function Navbar() {
     <div className="navbar">
       <div className="navbar__wrapper">
         <div className="navbar__brand">
-          <IconButton>
+          <IconButton onClick={handleSidebar}>
             <MenuIcon />
           </IconButton>
           <span>Task Manager</span>

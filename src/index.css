@@ -61,6 +61,26 @@ body.dark-theme .fab__primary {
 body.dark-theme .link__avatar {
   background-color: var(--color--secondary);
 }
+body.dark-theme .sidebar {
+  background-color: #121212;
+  border: 0;
+}
+body.dark-theme .searchbar__sidebar {
+  border: 1px solid var(--color--secondary);
+}
+
+body.dark-theme .searchbar__sidebar > input {
+  color: var(--color--secondary);
+}
+body.dark-theme .sidebar__links > a {
+  color: #fff;
+}
+body.dark-theme .sidebar__links > a:hover {
+  background-color: #5d00ff4d;
+}
+body.dark-theme .sidebar__header__wrapper > span {
+  color: var(--color--secondary);
+}
 .navbar__wrapper .MuiSvgIcon-root {
   fill: #fff;
 }
