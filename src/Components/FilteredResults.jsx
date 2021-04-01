@@ -5,8 +5,14 @@ import SearchIcon from "@material-ui/icons/Search";
 
 function FilteredResults() {
   const [{ tasks }, dispatch] = useStateValue();
+  // stored tasks in context API
   const [data, setData] = React.useState(tasks && tasks);
+  // intial state of task data which are intalized with task from context
+  // Context API tasks
   const handleSearch = (e) => {
+    //  A utility function which search for a particular
+    // by matching task name with all of the task inside the context
+    // API
     let results =
       tasks &&
       tasks.filter((task) => {

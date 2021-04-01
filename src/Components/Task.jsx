@@ -7,6 +7,9 @@ function Task({ id, message, priority, due_date }) {
   // eslint-disable-next-line
   const [{}, dispatch] = useStateValue();
 
+  // handler for enable Task Selection Modal by sending
+  // a dispatch request to the Context API
+
   const handleTaskModal = () => {
     dispatch({
       type: "SET_TASK_MODAL",

@@ -10,13 +10,18 @@ import FilteredResults from "./FilteredResults";
 function TaskContainer({ title }) {
   const [{ tasks, isRendered, isSearch }, dispatch] = useStateValue();
 
+  // react-beautiful-dnd 3rd Party npm library which enable us to drag & drop items
   function handleOnDragEnd(result) {
     if (!result.destination) return;
 
+    // first convert an Array from a group of JSON objects to
     const items = Array.from(tasks);
+    // splicing our sourc element by using source.index on items
+    // Array
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
 
+    // storing all tasks to Context API
     dispatch({
       type: "SET_TASKS",
       tasks: items,
