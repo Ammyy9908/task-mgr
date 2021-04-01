@@ -28,6 +28,7 @@ body {
 
 * {
   font-family: "Poppins", "sans-serif";
+  outline: 0 !important;
 }
 
 ::-webkit-scrollbar {
@@ -79,6 +80,51 @@ body.dark-theme .sidebar__links > a:hover {
   background-color: #5d00ff4d;
 }
 body.dark-theme .sidebar__header__wrapper > span {
+  color: var(--color--secondary);
+}
+body.dark-theme .task-creation {
+  background-color: #121212;
+  border: 1px solid var(--color--secondary);
+}
+body.dark-theme .task__creation__haeder_left > span {
+  color: var(--color--secondary);
+}
+body.dark-theme .task__name {
+  color: var(--color--secondary) !important;
+}
+body.dark-theme .task-creation .MuiSvgIcon-root {
+  fill: var(--color--secondary);
+}
+body.dark-theme .task__creation__haeder {
+  border-bottom: 1px solid var(--color--secondary);
+}
+body.dark-theme .form__control > select {
+  padding: 0.5em;
+  border: 2px solid var(--color--secondary);
+  background-color: #121212;
+  border-radius: 5px;
+  color: var(--color--secondary);
+}
+body.dark-theme select option {
+  color: var(--color--secondary) !important;
+}
+body.dark-theme .MuiInputLabel-formControl {
+  color: var(--color--secondary) !important;
+}
+body.dark-theme .MuiInput-underline {
+  border-bottom: 1px solid var(--color--secondary);
+}
+body.dark-theme #datetime-local {
+  color: var(--color--secondary) !important;
+}
+body.dark-theme .task__modal__wrapper {
+  background-color: #121212;
+  border: 1px solid var(--color--secondary);
+}
+body.dark-theme .task__modal__header .MuiSvgIcon-root {
+  fill: var(--color--secondary);
+}
+body.dark-theme .searchBarMobile > input {
   color: var(--color--secondary);
 }
 .navbar__wrapper .MuiSvgIcon-root {

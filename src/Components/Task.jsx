@@ -1,50 +1,55 @@
 import React from "react";
-import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
-import { Chip, IconButton } from "@material-ui/core";
-import ShowChartIcon from "@material-ui/icons/ShowChart";
-import Avatar from "./Avatar/Avatar";
 import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
-import ClearIcon from "@material-ui/icons/Clear";
 import { motion, AnimateSharedLayout } from "framer-motion";
+import { useStateValue } from "../StateProvider";
 
-function Task({ id }) {
-  //   const handleDelete = (e) => {
-  //     document.getElementById(id).remove();
-  //   };
+function Task({ id, message, priority, due_date }) {
+  // eslint-disable-next-line
+  const [{}, dispatch] = useStateValue();
+
+  const handleTaskModal = () => {
+    dispatch({
+      type: "SET_TASK_MODAL",
+      taskInfo: { name: message, priority, due_date, id: id },
+    });
+  };
   return (
-    <AnimateSharedLayout>
-      <motion.div
-        className="task__card"
-        id={id}
-        layout
-        animate={{
-          x: 0,
-          y: 35,
-          scale: 1,
-          rotate: 0,
-        }}
-        whileHover={{
-          scale: 1.04,
-        }}
-      >
-        <div className="task__card__wrapper">
-          <div className="task__top">
-            <CheckCircleOutlineIcon />
-            <span className="task__title">Task Title</span>
-          </div>
-          <div className="task__bottom">
-            <Chip label="High" color="secondary" icon={<ShowChartIcon />} />
-            <Avatar color="link" size="small">
-              Su
-            </Avatar>
-            <div className="timestamp">
-              <QueryBuilderIcon />
-              <span>30 Mar 2021</span>
+    <>
+      <AnimateSharedLayout>
+        <motion.div className="task__card" id={id} onClick={handleTaskModal}>
+          <div className="task__card__wrapper">
+            <div className="task__top">
+              <span className="task__title">{message}</span>
+            </div>
+            <div className="task__bottom">
+              <div className="timestamp">
+                <QueryBuilderIcon />
+                <span>
+                  {new Date(due_date).getDate() +
+                    "-" +
+                    [
+                      "Jan",
+                      "Feb",
+                      "Mar",
+                      "Apr",
+                      "May",
+                      "Jun",
+                      "Jul",
+                      "Aug",
+                      "Sep",
+                      "Oct",
+                      "Nov",
+                      "Dec",
+                    ][new Date(due_date).getMonth()] +
+                    "-" +
+                    new Date(due_date).getFullYear()}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      </motion.div>
-    </AnimateSharedLayout>
+        </motion.div>
+      </AnimateSharedLayout>
+    </>
   );
 }
 
